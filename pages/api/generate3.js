@@ -6,8 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 const basePromptPrefix = `
-Write a Guideline for sustainable purchasing inside this corporation using bullet points and the fact that less is more, make it general, friendly and provide creative ideas.
-`;
+Write 3 texts in the style of Greta Thunberg to explain in a general way the actions the company is taking regarding Climate Change. Make sure to write as if you are a corporation, avoid to use "I" and make the texts different and optimized for the social media they are going to be published on.that are going to be templates for an 1)Instagram post (it should be really short and use emojis), 2) Linkedin post (should be longer than the instagram post) 3) Twitter thread with 3 twits using emojis. `;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);

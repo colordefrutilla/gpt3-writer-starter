@@ -6,8 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 const basePromptPrefix = `
-Write a Guideline for sustainable purchasing inside this corporation using bullet points and the fact that less is more, make it general, friendly and provide creative ideas.
-`;
+Write a list of sustainable products, include 1 example of each category (office supplies, sustainable packaging, reusable products, compostable items, sustainable daily life products). Each of the products should be shown with a short explanation of why they are sustainable. It is for a this corporation, take into consideration the corporation name and its area to recommend products. Don't include solar phones`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
