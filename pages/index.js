@@ -20,6 +20,7 @@ const Home = () => {
   const [phraseIndex, setPhraseIndex] = useState(0);
 
   const callGenerateEndpoint = async () => {
+    setApiOutput("");
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
@@ -48,6 +49,8 @@ const Home = () => {
   };
 
   const callGenerate2Endpoint = async () => {
+    setApiOutput("");
+
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
@@ -76,6 +79,7 @@ const Home = () => {
   };
 
   const callGenerate3Endpoint = async () => {
+    setApiOutput("");
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
@@ -109,7 +113,7 @@ const Home = () => {
   };
   return (
     <div className="bg-gradient-to-b from-slate-900 to-teal-600 min-h-screen pb-20">
-      <div className="max-w-3xl m-auto pt-20">
+      <div className="max-w-3xl m-auto pt-20 px-2">
         <div className="header">
           <div className="header-title">
             <h1>Sustainability made easy</h1>
@@ -133,10 +137,10 @@ const Home = () => {
           /> */}
           <input
             type="text"
-            placeholder="Write your company name and your area like this: Fernet&Coke SA, Argentina"
+            placeholder="Type: Company Name, Location"
             value={userInput}
             onChange={onUserChangedText}
-            className="input input-bordered input-lg w-full center"
+            className="input input-bordered input-lg w-full center whitespace-normal"
           />
           <br />
           <div className="flex flex-col mt-12">
@@ -161,20 +165,17 @@ const Home = () => {
           <br />
           <br />
           <br />
-          <div className="radial-progress ml-80">
-            <a
-              className={isGenerating ? "" : "null"}
-              onClick={callGenerateEndpoint}
-              onClick={callGenerate2Endpoint}
-              onClick={callGenerate3Endpoint}
-            >
-              <div className="radial-progress">
-                {isGenerating ? <span className="loader"></span> : <p></p>}
+          <div className=" text-center">
+            {isGenerating ? (
+              <div>
+                <div className="mb-10">Generation takes about 10 seconds </div>
+                <span className="loader h-12 w-12 "></span>
               </div>
-            </a>
+            ) : null}
           </div>
+
           <br />
-          <br /> <br />
+          <br />
           <br />
           {apiOutput && (
             <div className="output">
