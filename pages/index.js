@@ -112,11 +112,17 @@ const Home = () => {
     setUserInput(event.target.value);
   };
   return (
-    <div className="bg-gradient-to-b from-slate-900 to-teal-600 min-h-screen pb-20">
+    <div className="bg-gradient-to-b from-black to-black min-h-screen pb-20">
       <div className="max-w-3xl m-auto pt-20 px-2">
         <div className="header">
           <div className="header-title">
-            <h1>Sustainability made easy</h1>
+            <h1>
+              sust
+              <span className="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-lime-400">
+                AI
+              </span>
+              nability made easy
+            </h1>
           </div>
           <br />
           <div className="header-subtitle">
@@ -127,17 +133,11 @@ const Home = () => {
 
         <div
           /*className="prompt-container mt-28"*/
-          className="mt-28 mb-12"
+          className="mt-20 mb-12"
         >
-          {/* <textarea
-            placeholder="Write your company name and your area like this: Fernet&Coke SA, Argentina"
-            className="bg-neutral-800 border-double border-2 border-white  hover:bg-neutral-900"
-            value={userInput}
-            onChange={onUserChangedText}
-          /> */}
           <input
             type="text"
-            placeholder="Type: Company Name, Location"
+            placeholder="Type: Company Name"
             value={userInput}
             onChange={onUserChangedText}
             className="input input-bordered input-lg w-full center whitespace-normal"
@@ -148,13 +148,13 @@ const Home = () => {
               Generate your Sustainable Purchasing Guideline
             </button>
             <button
-              className="btn btn-outline mt-6"
+              className="btn btn-outline mt-8"
               onClick={callGenerate2Endpoint}
             >
-              Uncover Earth-Friendly Items in your area
+              Craft a press release on corporate Sustainability efforts
             </button>
             <button
-              className="btn btn-outline mt-6"
+              className="btn btn-outline mt-8"
               onClick={callGenerate3Endpoint}
             >
               Spread the Word on Social Media
@@ -168,7 +168,7 @@ const Home = () => {
           <div className=" text-center">
             {isGenerating ? (
               <div>
-                <div className="mb-10">Generation takes about 10 seconds </div>
+                <div className="mb-8">Generation takes about 15 seconds </div>
                 <span className="loader h-12 w-12 "></span>
               </div>
             ) : null}

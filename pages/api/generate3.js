@@ -6,7 +6,10 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 const basePromptPrefix = `
-Write 3 texts in the style of Greta Thunberg to explain in a general way the actions the company is taking regarding Climate Change. Make sure to write as if you are a corporation, avoid to use "I" and make the texts different and optimized for the social media they are going to be published on.that are going to be templates for an 1)Instagram post (it should be really short and use emojis), 2) Linkedin post (should be longer than the instagram post) 3) Twitter thread with 3 twits using emojis. `;
+Write sustainable communication templates for a comporation [company name], in the style of Greta Thunberg (don't mention her) emphasizing the urgency and importance of taking action on climate change. Optimize the message for Instagram, LinkedIn, and Twitter thread with 3 twitts max, to effectively communicate the commitment to sustainability and inspire others to take action. Make Instagram's template is shorter than Linkedin's template, incorporate relevant hashtags and different emojis to make the posts more engaging and shareable.
+Instagram:
+LinkedIn:
+Twitter:`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
@@ -14,7 +17,7 @@ const generateAction = async (req, res) => {
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `${basePromptPrefix}${req.body.userInput}\n`,
-    temperature: 0.85,
+    temperature: 0.9,
     max_tokens: 2033,
   });
 

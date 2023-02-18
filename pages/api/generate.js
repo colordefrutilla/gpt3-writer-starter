@@ -5,8 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `
-Write a Guideline for sustainable purchasing inside this corporation using bullet points and the fact that less is more, make it general, friendly and provide creative ideas.
+const basePromptPrefix = `Generate a sustainable purchasing guideline for [company name]. Include best practices for sustainable procurement considering the commpany activity, such as selecting environmentally-friendly products, reducing waste, and supporting ethical suppliers. Tailor it to the company's specific industry and needs, and should include clear and actionable recommendations for achieving sustainable procurement practices with examples. The guideline should be presented in a professional, easy-to-read format that can be shared with internal and external stakeholders. 
 `;
 const generateAction = async (req, res) => {
   // Run first prompt

@@ -5,8 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `
-Write a list of sustainable products, include 1 example of each category (office supplies, sustainable packaging, reusable products, compostable items, sustainable daily life products). Each of the products should be shown with a short explanation of why they are sustainable. It is for a this corporation, take into consideration the corporation name and its area to recommend products. Don't include solar phones`;
+const basePromptPrefix = `Write a sustainable communication template for this company, in the style of Greta Thunberg (don't mention her) emphasizing the urgency and importance of taking action on climate change. Optimize the message for press releases to effectively communicate the corporate commitment to sustainability and inspire others to take action. Tailor it to the company's specific industry`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);

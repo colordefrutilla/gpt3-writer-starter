@@ -1,7 +1,7 @@
-import './styles.css';
-import './globals.css';
+import "./styles.css";
+import "./globals.css";
 
 function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 export default App;
