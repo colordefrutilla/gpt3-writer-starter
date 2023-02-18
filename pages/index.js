@@ -107,6 +107,36 @@ const Home = () => {
     setIsGenerating(false);
   };
 
+  const callGenerate4Endpoint = async () => {
+    setApiOutput("");
+
+    setIsGenerating(true);
+
+    console.log("Calling OpenAI...");
+    const response = await fetch("/api/generate4", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userInput }),
+    });
+
+    const data = await response.json();
+    const { output } = data;
+    console.log("OpenAI replied...", output.text);
+
+    if (phraseIndex === phrases.length - 1) {
+      setPhraseIndex(0);
+    } else {
+      console.log("updating phraseindex");
+      setPhraseIndex(phraseIndex + 1);
+    }
+
+    setApiOutput(`${output.text}`);
+    setIsGenerating(false);
+  };
+
   const onUserChangedText = (event) => {
     console.log(event.target.value);
     setUserInput(event.target.value);
@@ -158,6 +188,12 @@ const Home = () => {
               onClick={callGenerate3Endpoint}
             >
               Spread the Word on Social Media
+            </button>
+            <button
+              className="btn btn-outline mt-8"
+              onClick={callGenerate4Endpoint}
+            >
+              Build your Sustainable Strategy answering these questions
             </button>
           </div>
           {/* New code I added here */}
