@@ -2,6 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import buildspaceLogo from "../assets/buildspace-logo.png";
+import CarlSuperHero from "../assets/Carl-Super-Hero.png";
 import { Link } from "next/link";
 
 const phrases = [
@@ -137,6 +138,35 @@ const Home = () => {
     setIsGenerating(false);
   };
 
+  const callGenerate5Endpoint = async () => {
+    setApiOutput("");
+    setIsGenerating(true);
+
+    console.log("Calling OpenAI...");
+    const response = await fetch("/api/generate5", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userInput }),
+    });
+
+    const data = await response.json();
+    const { output } = data;
+    console.log("OpenAI replied...", output.text);
+
+    if (phraseIndex === phrases.length - 1) {
+      setPhraseIndex(0);
+    } else {
+      console.log("updating phraseindex");
+      setPhraseIndex(phraseIndex + 1);
+    }
+
+    setApiOutput(`${output.text}`);
+    setIsGenerating(false);
+  };
+
   const onUserChangedText = (event) => {
     console.log(event.target.value);
     setUserInput(event.target.value);
@@ -147,11 +177,11 @@ const Home = () => {
         <div className="header">
           <div className="header-title">
             <h1>
-              sust
+              Sust
               <span className="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-lime-400">
                 AI
               </span>
-              nability made easy
+              nability <span className="text-white">made</span> easy.
             </h1>
           </div>
           <br />
@@ -174,26 +204,39 @@ const Home = () => {
           />
           <br />
           <div className="flex flex-col mt-12">
-            <button className="btn btn-outline" onClick={callGenerateEndpoint}>
-              Generate your Sustainable Purchasing Guideline
-            </button>
             <button
-              className="btn btn-outline mt-8"
+              className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
+              onClick={callGenerate4Endpoint}
+            >
+              Build your Sustainable Strategy answering these questions
+            </button>
+
+            <button
+              className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
+              onClick={callGenerate5Endpoint}
+            >
+              Communicate your progress with this Report Template
+            </button>
+
+            <button
+              className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
+              onClick={callGenerateEndpoint}
+            >
+              Generate a Sustainable Purchasing Guideline
+            </button>
+
+            <button
+              className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
               onClick={callGenerate2Endpoint}
             >
               Craft a press release on corporate Sustainability efforts
             </button>
+
             <button
-              className="btn btn-outline mt-8"
+              className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
               onClick={callGenerate3Endpoint}
             >
               Spread the Word on Social Media
-            </button>
-            <button
-              className="btn btn-outline mt-8"
-              onClick={callGenerate4Endpoint}
-            >
-              Build your Sustainable Strategy answering these questions
             </button>
           </div>
           {/* New code I added here */}
@@ -237,6 +280,19 @@ const Home = () => {
             <div className="badge">
               <Image src={buildspaceLogo} alt="buildspace logo" />
               <p>build with buildspace</p>
+            </div>
+          </a>
+        </div>
+
+        <div className="badge-container1 grow">
+          <a
+            href="https://www.thenextmove.io/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="badge1">
+              <Image src={CarlSuperHero} alt="Carl Icon" />
+              <p>Carl was here</p>
             </div>
           </a>
         </div>
