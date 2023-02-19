@@ -283,19 +283,6 @@ const Home = () => {
             </div>
           </a>
         </div>
-
-        <div className="badge-container1 grow">
-          <a
-            href="https://www.thenextmove.io/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="badge1">
-              <Image src={CarlSuperHero} alt="Carl Icon" />
-              <p>Carl was here</p>
-            </div>
-          </a>
-        </div>
       </div>
     </div>
   );
