@@ -2,8 +2,9 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import buildspaceLogo from "../assets/buildspace-logo.png";
-import CarlSuperHero from "../assets/Carl-Super-Hero.png";
 import { Link } from "next/link";
+import { initGA, logPageView } from "../utils/gtag";
+import { useEffect } from "react";
 
 const phrases = [
   "Choose Green or Miss Out",
@@ -167,124 +168,139 @@ const Home = () => {
     setIsGenerating(false);
   };
 
-  const onUserChangedText = (event) => {
+  function MyApp({ Component, pageProps }) {
+    useEffect(() => {
+      if (!window.GA_INITIALIZED) {
+        initGA();
+        window.GA_INITIALIZED = true;
+      }
+      logPageView();
+    }, []);
+
+    return <Component {...pageProps} />;
+  }
+
+  function onUserChangedText(event) {
     console.log(event.target.value);
     setUserInput(event.target.value);
-  };
+  }
+
   return (
-    <div className="bg-gradient-to-b from-black to-black min-h-screen pb-20">
-      <div className="max-w-3xl m-auto pt-20 px-2">
-        <div className="header">
-          <div className="header-title">
-            <h1>
-              Sust
-              <span className="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-lime-400">
-                AI
-              </span>
-              nability <span className="text-white">made</span> easy.
-            </h1>
+    <>
+      <div className="bg-gradient-to-b from-black to-black min-h-screen pb-20">
+        <div className="max-w-3xl m-auto pt-20 px-2">
+          <div className="header">
+            <div className="header-title">
+              <h1>
+                Sust
+                <span className="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-lime-400">
+                  AI
+                </span>
+                nability <span className="text-white">made</span> easy.
+              </h1>
+            </div>
+            <br />
+            <div className="header-subtitle">
+              <h2></h2>
+            </div>
           </div>
-          <br />
-          <div className="header-subtitle">
-            <h2></h2>
-          </div>
-        </div>
-        {/* Add this code here*/}
+          {/* Add this code here*/}
 
-        <div
-          /*className="prompt-container mt-28"*/
-          className="mt-20 mb-12"
-        >
-          <input
-            type="text"
-            placeholder="Type: Company Name"
-            value={userInput}
-            onChange={onUserChangedText}
-            className="input input-bordered input-lg w-full center whitespace-normal"
-          />
-          <br />
-          <div className="flex flex-col mt-12">
-            <button
-              className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
-              onClick={callGenerate4Endpoint}
-            >
-              Build your Sustainable Strategy answering these questions
-            </button>
+          <div
+            /*className="prompt-container mt-28"*/
+            className="mt-20 mb-12"
+          >
+            <input
+              type="text"
+              placeholder="Type: Company Name"
+              value={userInput}
+              onChange={onUserChangedText}
+              className="input input-bordered input-lg w-full center whitespace-normal"
+            />
+            <br />
+            <div className="flex flex-col mt-12">
+              <button
+                className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
+                onClick={callGenerate4Endpoint}
+              >
+                Build your Sustainable Strategy answering these questions
+              </button>
 
-            <button
-              className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
-              onClick={callGenerate5Endpoint}
-            >
-              Communicate your progress with this Report Template
-            </button>
+              <button
+                className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
+                onClick={callGenerate5Endpoint}
+              >
+                Communicate your progress with this Report Template
+              </button>
 
-            <button
-              className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
-              onClick={callGenerateEndpoint}
-            >
-              Generate a Sustainable Purchasing Guideline
-            </button>
+              <button
+                className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
+                onClick={callGenerateEndpoint}
+              >
+                Generate a Sustainable Purchasing Guideline
+              </button>
 
-            <button
-              className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
-              onClick={callGenerate2Endpoint}
-            >
-              Craft a press release on corporate Sustainability efforts
-            </button>
+              <button
+                className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
+                onClick={callGenerate2Endpoint}
+              >
+                Craft a press release on corporate Sustainability efforts
+              </button>
 
-            <button
-              className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
-              onClick={callGenerate3Endpoint}
-            >
-              Spread the Word on Social Media
-            </button>
-          </div>
-          {/* New code I added here */}
-          <br />
-          <br />
-          <br />
-          <br />
-          <div className=" text-center">
-            {isGenerating ? (
-              <div>
-                <div className="mb-8">Generation takes about 15 seconds </div>
-                <span className="loader h-12 w-12 "></span>
-              </div>
-            ) : null}
-          </div>
+              <button
+                className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
+                onClick={callGenerate3Endpoint}
+              >
+                Spread the Word on Social Media
+              </button>
+            </div>
+            {/* New code I added here */}
+            <br />
+            <br />
+            <br />
+            <br />
+            <div className=" text-center">
+              {isGenerating ? (
+                <div>
+                  <div className="mb-8">Generation takes about 15 seconds </div>
+                  <span className="loader h-12 w-12 "></span>
+                </div>
+              ) : null}
+            </div>
 
-          <br />
-          <br />
-          <br />
-          {apiOutput && (
-            <div className="output">
-              <div className="output-header-container">
-                <div className="output-header">
-                  <h3>{phrases[phraseIndex]}</h3>
+            <br />
+            <br />
+            <br />
+            {apiOutput && (
+              <div className="output">
+                <div className="output-header-container">
+                  <div className="output-header">
+                    <h3>{phrases[phraseIndex]}</h3>
+                  </div>
+                </div>
+
+                <div className="output-content">
+                  <p>{apiOutput}</p>
                 </div>
               </div>
+            )}
+          </div>
 
-              <div className="output-content">
-                <p>{apiOutput}</p>
+          <div className="badge-container grow">
+            <a
+              href="https://buildspace.so/builds/ai-writer"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="badge">
+                <Image src={buildspaceLogo} alt="buildspace logo" />
+                <p>build with buildspace</p>
               </div>
-            </div>
-          )}
-        </div>
-
-        <div className="badge-container grow">
-          <a
-            href="https://buildspace.so/builds/ai-writer"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="badge">
-              <Image src={buildspaceLogo} alt="buildspace logo" />
-              <p>build with buildspace</p>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
