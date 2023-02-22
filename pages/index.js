@@ -12,7 +12,8 @@ const phrases = [
   "Go Eco or Goodbye",
   "Green Up or Give Up",
   "Go Green or Adios",
-  "Choose Sustainability or See Ya",
+  "Choose Sustainability or See Ya"
+  "Green up or ship out!",
 ];
 
 const Home = () => {
