@@ -5,8 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Generate a sustainable purchasing guideline for [company name]. Include best practices for sustainable procurement considering the commpany activity, such as selecting environmentally-friendly products, reducing waste, and supporting ethical suppliers. Tailor it to the company's specific industry and needs, and should include clear and actionable recommendations for achieving sustainable procurement practices with examples. The guideline should be presented in a professional, easy-to-read format that can be shared with internal and external stakeholders. 
-`;
+const basePromptPrefix = `Desarrollar procedimiento estandar de compras corporativas sustentables para reducir el impacto ambiental y social de la compañía. Debe incluir recomendaciones claras y accionables y las siguientes secciones: Paso 1: Establecer una política de compras sustentables, Paso 2: Establecer los criterios de selección para los proveedores, Paso 3: Establecer una comunicación clara con los proveedores y evaluarlos, Paso 4: Establecer un sistema de control de sustentabilidad. Paso 5: Establecer un sistema de seguimiento, auditoría y difusión. La guía debe presentarse en formato profesional, de fácil lectura para compartirla con las partes interesadas internas y externas.`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
@@ -14,7 +13,7 @@ const generateAction = async (req, res) => {
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `${basePromptPrefix}${req.body.userInput}\n`,
-    temperature: 0.85,
+    temperature: 0.9,
     max_tokens: 2033,
   });
 

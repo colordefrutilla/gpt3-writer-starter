@@ -5,7 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Write a sustainable press release template for this company in the style of Greta Thunberg (don't mention her) emphasizing the urgency and importance of taking action on climate change. Start the text with one sentence explanation on why this template is useful and then include all the sections a press release template should have starting with a Headline. Optimize the message to effectively communicate the corporate commitment to sustainability and inspire others to take action. Tailor it to the company's specific industry.`;
+const basePromptPrefix = `Haceme una plantilla de comunicado de prensa sostenible para [nombre de la compañía] en el estilo de Greta Thunberg, enfatizando la urgencia e importancia de tomar medidas sobre el cambio climático. Comenzá el texto con una oración que explique por qué esta plantilla es útil y luego incluí todas las secciones que debe tener una plantilla de comunicado de prensa, comenzando con un titular. Optimizá el mensaje para comunicar efectivamente el compromiso corporativo con la sostenibilidad e inspirar a otros a tomar medidas. Adaptalo a la industria específica de la empresa.`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);

@@ -213,7 +213,7 @@ const Home = () => {
           >
             <input
               type="text"
-              placeholder="Type: Company Name"
+              placeholder="Ingresá el nombre de tu organización"
               value={userInput}
               onChange={onUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
@@ -224,35 +224,38 @@ const Home = () => {
                 className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
                 onClick={callGenerate4Endpoint}
               >
-                Build your Sustainable Strategy answering these questions
+                📈Empezá a construir tu Estrategia Sustentable respondiendo
+                estas preguntas📈
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
                 onClick={callGenerate5Endpoint}
               >
-                Communicate your progress with this Report Template
+                📣Plasmá tu estrategia usando este template de reportes📣
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
                 onClick={callGenerateEndpoint}
               >
-                Generate a Sustainable Purchasing Guideline
+                🛒Desarrollá un procedimiento estándar para compras
+                sustentables🛒
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
                 onClick={callGenerate2Endpoint}
               >
-                Craft a press release on corporate Sustainability efforts
+                ♻️Usá este borrador para comunicar de manera concreta tus
+                acciones sustentables♻️
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
                 onClick={callGenerate3Endpoint}
               >
-                Spread the Word on Social Media
+                ✨Templates para posteos en redes sociales✨
               </button>
             </div>
             {/* New code I added here */}
@@ -263,7 +266,15 @@ const Home = () => {
             <div className=" text-center">
               {isGenerating ? (
                 <div>
-                  <div className="mb-8">Generation takes about 15 seconds </div>
+                  <div className="mb-8">
+                    La generación de respuestas tarda de 20 a 30 segundos.
+                    <br />
+                    Si la respuesta no te convenció, volvé a apretar el botón
+                    que apretaste para obtener otra.
+                    <br />
+                    TIP: Copiá y pegá las respuestas. Una vez que cierres la
+                    página o aprietes otros botones, se borran
+                  </div>
                   <span className="loader h-12 w-12 "></span>
                 </div>
               ) : null}

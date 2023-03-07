@@ -5,7 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Provide me a Sustainability Report Template that helps medium size companies communicate their sustainability performance and progress to stakeholders and customers (don't mention medium size). It should have these sections: one sentence explanation on why this template is useful and then: 1) Introduction, 2) Sustainability Performance, 3) Sustainability Strategy, 4) Sustainable Engagement Activities regarding sustainability issues, examples of success, community (either stakeholders and customers), 5) Conclusions and Next Steps. Make the template using specific and trigger questions (not more than 3 questions for each section) that are tailored for people who are new to sustainability. Use numbers to identify each section and bullets for each sub-section.`;
+const basePromptPrefix = `Proporcioname una plantilla de informe de sustentabilidad que ayude a las empresas a comunicar su desempeño y progreso en sostenibilidad a las partes interesadas y clientes. Debe tener diferentes secciones y el estilo de los reportes del Sistema B (B Corp). La plantilla debe utilizar preguntas específicas y desencadenantes (no más de 3 preguntas para cada sección) que sean adecuadas para personas nuevas en sostenibilidad. Use números para identificar cada sección y viñetas para cada subsección.`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
