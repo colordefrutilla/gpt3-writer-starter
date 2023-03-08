@@ -188,6 +188,27 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>Sustainability</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/plant/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/plant/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/plant/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/plant/site.webmanifest" />
+      </Head>
       <div className="bg-gradient-to-b from-black to-black min-h-screen pb-20">
         <div className="max-w-3xl m-auto pt-20 px-2">
           <div className="header">
