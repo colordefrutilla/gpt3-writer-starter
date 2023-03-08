@@ -27,7 +27,7 @@ const Home = () => {
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
-    const response = await fetch("/api/spanish/generate", {
+    const response = await fetch("/api/english/generate", {
       method: "POST",
 
       headers: {
@@ -57,7 +57,7 @@ const Home = () => {
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
-    const response = await fetch("/api/spanish/generate2", {
+    const response = await fetch("/api/english/generate2", {
       method: "POST",
 
       headers: {
@@ -86,7 +86,7 @@ const Home = () => {
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
-    const response = await fetch("/api/spanish/generate3", {
+    const response = await fetch("/api/english/generate3", {
       method: "POST",
 
       headers: {
@@ -116,7 +116,7 @@ const Home = () => {
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
-    const response = await fetch("/api/spanish/generate4", {
+    const response = await fetch("/api/english/generate4", {
       method: "POST",
 
       headers: {
@@ -145,7 +145,7 @@ const Home = () => {
     setIsGenerating(true);
 
     console.log("Calling OpenAI...");
-    const response = await fetch("/api/spanish/generate5", {
+    const response = await fetch("/api/english/generate5", {
       method: "POST",
 
       headers: {
@@ -188,27 +188,6 @@ const Home = () => {
 
   return (
     <>
-      <Head>
-        <title>Sustainability</title>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/plant/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/plant/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/plant/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/plant/site.webmanifest" />
-      </Head>
       <div className="bg-gradient-to-b from-black to-black min-h-screen pb-20">
         <div className="max-w-3xl m-auto pt-20 px-2">
           <div className="header">
@@ -234,7 +213,7 @@ const Home = () => {
           >
             <input
               type="text"
-              placeholder="Ingresá el nombre de tu organización"
+              placeholder="Type: Company Name"
               value={userInput}
               onChange={onUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
@@ -245,38 +224,35 @@ const Home = () => {
                 className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
                 onClick={callGenerate4Endpoint}
               >
-                📈Empezá a construir tu Estrategia Sustentable respondiendo
-                estas preguntas📈
+                Build your Sustainable Strategy answering these questions
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
                 onClick={callGenerate5Endpoint}
               >
-                📣Plasmá tu estrategia usando este template de reportes📣
+                Communicate your progress with this Report Template
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
                 onClick={callGenerateEndpoint}
               >
-                🛒Desarrollá un procedimiento estándar para compras
-                sustentables🛒
+                Generate a Sustainable Purchasing Guideline
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
                 onClick={callGenerate2Endpoint}
               >
-                ♻️Usá este borrador para comunicar de manera concreta tus
-                acciones sustentables♻️
+                Craft a press release on corporate Sustainability efforts
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
                 onClick={callGenerate3Endpoint}
               >
-                ✨Templates para posteos en redes sociales✨
+                Spread the Word on Social Media
               </button>
             </div>
             {/* New code I added here */}
@@ -287,15 +263,7 @@ const Home = () => {
             <div className=" text-center">
               {isGenerating ? (
                 <div>
-                  <div className="mb-8">
-                    La generación de respuestas tarda de 20 a 30 segundos.
-                    <br />
-                    Si la respuesta no te convenció, volvé a apretar el botón
-                    que apretaste para obtener otra.
-                    <br />
-                    TIP: Copiá y pegá las respuestas. Una vez que cierres la
-                    página o aprietes otros botones, se borran
-                  </div>
+                  <div className="mb-8">Generation takes about 15 seconds </div>
                   <span className="loader h-12 w-12 "></span>
                 </div>
               ) : null}
