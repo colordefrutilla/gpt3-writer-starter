@@ -189,7 +189,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Sustainability</title>
+        <title>SustAInability</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -288,7 +288,7 @@ const Home = () => {
               {isGenerating ? (
                 <div>
                   <div className="mb-8">
-                    La generación de respuestas tarda de 20 a 30 segundos.
+                    La generación de respuestas tarda entre 20 a 30 segundos.
                     <br />
                     Si la respuesta no te convenció, volvé a apretar el botón
                     que apretaste para obtener otra.

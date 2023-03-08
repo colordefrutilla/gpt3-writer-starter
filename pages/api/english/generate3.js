@@ -5,7 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Create a set of sustainable communication templates for [company name] that adopt a style similar to Greta Thunberg's. The emphasis of these templates should be on the urgency and importance of taking action on climate change, while also showcasing the company's commitment to sustainability and carbon neutral goals (don't mention years). Optimize the message for Instagram, LinkedIn, and Twitter threads, using a maximum of three tweets to effectively communicate the message. The Instagram template should be shorter than the LinkedIn template, and all templates should incorporate relevant hashtags and engaging emojis (use different emojis) to encourage sharing.
+const basePromptPrefix = `Create a set of sustainable communication templates for this company that adopt a style similar to Greta Thunberg's. The emphasis of these templates should be on the urgency and importance of taking action on climate change, while also showcasing the company's commitment to sustainability and carbon neutral goals (don't mention years). Optimize the message for Instagram, LinkedIn, and Twitter threads, using a maximum of three tweets to effectively communicate the message. The Instagram template should be shorter than the LinkedIn template, and all templates should incorporate relevant hashtags and engaging emojis (use different emojis) to encourage sharing.
 Instagram:
 LinkedIn:
 Twitter:`;

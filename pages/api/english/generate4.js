@@ -5,8 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `
-Provide me a Sustainable Strategy Template that helps medium size company start filling and identify their sustainability goals (don't mention medium size). It should have these sections: one sentence explanation on why this template is useful and then: Assessment of Current Sustainability Practices, Development of Sustainability Goals, analyze Sustainability partnerships or collaborations with key suppliers, and develop a roadmap for achieving their sustainable goals and an implementation of the Roadmap setting kpis to monitor and report. Make the template using specific and trigger questions that are tailored for people who are new to sustainability. Use numbers to identify each section and bullets for each sub-section.`;
+const basePromptPrefix = `Provide me a Sustainable Strategy Template following B Corp standards that helps medium size company identify their sustainability goals (don't mention medium size). It should have different sections (all focused on sustainability strategies). Make the template using specific and trigger questions that are tailored for people who are new to sustainability. Use numbers to identify each section and bullets for each sub-section.`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);

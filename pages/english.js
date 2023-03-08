@@ -188,6 +188,27 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>SustAInability</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/plant/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/plant/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/plant/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/plant/site.webmanifest" />
+      </Head>
       <div className="bg-gradient-to-b from-black to-black min-h-screen pb-20">
         <div className="max-w-3xl m-auto pt-20 px-2">
           <div className="header">
@@ -224,35 +245,35 @@ const Home = () => {
                 className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
                 onClick={callGenerate4Endpoint}
               >
-                Build your Sustainable Strategy answering these questions
+                📈Build your Sustainable Strategy answering these questions📈
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
                 onClick={callGenerate5Endpoint}
               >
-                Communicate your progress with this Report Template
+                📣Communicate your progress with this Report Template📣
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
                 onClick={callGenerateEndpoint}
               >
-                Generate a Sustainable Purchasing Guideline
+                🛒Generate a Sustainable Purchasing Guideline🛒
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
                 onClick={callGenerate2Endpoint}
               >
-                Craft a press release on corporate Sustainability efforts
+                ♻️Craft a press release on corporate Sustainability efforts♻️
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
                 onClick={callGenerate3Endpoint}
               >
-                Spread the Word on Social Media
+                ✨Spread the Word on Social Media✨
               </button>
             </div>
             {/* New code I added here */}
