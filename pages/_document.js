@@ -5,7 +5,11 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta property="og:title" content="GPT-3 Writer" key="title" />
+        <meta
+          property="og:title"
+          content="GPT-3 Sustainable Assistant"
+          key="title"
+        />
         <meta
           property="og:description"
           content="build with buildspace"
