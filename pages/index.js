@@ -326,7 +326,7 @@ const Home = () => {
               rel="noreferrer"
             >
               <div className="badge">
-                <p>connect with me</p>
+                <p>Conectate conmigo</p>
               </div>
             </a>
           </div>
