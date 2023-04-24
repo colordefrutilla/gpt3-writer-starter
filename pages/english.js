@@ -17,7 +17,8 @@ const phrases = [
 ];
 
 const Home = () => {
-  const [userInput, setUserInput] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [industry, setIndustry] = useState("");
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -33,7 +34,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -63,7 +64,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -92,7 +93,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -122,7 +123,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -151,7 +152,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -183,7 +184,12 @@ const Home = () => {
 
   function onUserChangedText(event) {
     console.log(event.target.value);
-    setUserInput(event.target.value);
+    setCompanyName(event.target.value);
+  }
+
+  function onNewUserChangedText(event) {
+    console.log(event.target.value);
+    setIndustry(event.target.value);
   }
 
   return (
@@ -234,46 +240,60 @@ const Home = () => {
           >
             <input
               type="text"
-              placeholder="Type: Company Name"
-              value={userInput}
+              placeholder="ype: Company Name"
+              value={companyName}
               onChange={onUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
             />
             <br />
+            <br />
+            <input
+              type="text"
+              placeholder="Type: Industry"
+              value={industry}
+              onChange={onNewUserChangedText}
+              className="input input-bordered input-lg w-full center whitespace-normal"
+            />
+            <br />
+            <br />
+            <br />
+            <div className="mb-8 text-center">
+              How can we help you today? 👇
+            </div>
             <div className="flex flex-col mt-12">
               <button
-                className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
+                className="btn btn-outline border-lime-400 hover:bg-lime-400"
                 onClick={callGenerate4Endpoint}
               >
-                📈Build your Sustainable Strategy answering these questions📈
+                Build your Sustainable Strategy answering these questions 📈
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
                 onClick={callGenerate5Endpoint}
               >
-                📣Communicate your progress with this Report Template📣
+                Communicate your progress with this Report Template 📣
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
                 onClick={callGenerateEndpoint}
               >
-                🛒Generate a Sustainable Purchasing Guideline🛒
+                Generate a Sustainable Purchasing Guideline 🛒
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
                 onClick={callGenerate2Endpoint}
               >
-                ♻️Craft a press release on corporate Sustainability efforts♻️
+                Craft a press release on corporate Sustainability efforts ♻️
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
                 onClick={callGenerate3Endpoint}
               >
-                ✨Spread the Word on Social Media✨
+                Spread the Word on Social Media✨
               </button>
             </div>
             {/* New code I added here */}
@@ -284,7 +304,15 @@ const Home = () => {
             <div className=" text-center">
               {isGenerating ? (
                 <div>
-                  <div className="mb-8">Generation takes about 15 seconds </div>
+                  <div className="mb-8">
+                    Generation takes about 20 seconds.
+                    <br />
+                    If you don't like the output, just hit the same button again
+                    to re-generate it.
+                    <br />
+                    ⚠️If you close the site or press other buttons, previous
+                    outputs will disappear.⚠️
+                  </div>
                   <span className="loader h-12 w-12 "></span>
                 </div>
               ) : null}

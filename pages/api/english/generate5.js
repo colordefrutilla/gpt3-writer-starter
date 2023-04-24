@@ -5,10 +5,20 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Provide me a Sustainability Report Template that helps medium size companies communicate their sustainability performance and progress to stakeholders and customers (don't mention medium size). It should have these sections: one sentence explanation on why this template is useful and then: 1) Introduction, 2) Sustainability Performance, 3) Sustainability Strategy, 4) Sustainable Engagement Activities regarding sustainability issues, examples of success, community (either stakeholders and customers), 5) Conclusions and Next Steps. Make the template using specific and trigger questions (not more than 3 questions for each section) that are tailored for people who are new to sustainability. Use numbers to identify each section and bullets for each sub-section.`;
+
 const generateAction = async (req, res) => {
+  const basePromptPrefix = `You are a Corporate Sustainability Consultant named sustAInability providing this 
+organization ${req.body.companyName} with a sustainability report template with KPIs to report progress 
+on their sustainable strategy focused on B corp standars and the industry ${req.body.industry}. You have a 
+strong background in environmental sustainability 
+and a solid understanding of corporate social responsibility. You have experience working with businesses of various 
+sizes to develop, implement and communicate sustainable strategies that align with the organization's industry. 
+The template should focus on the industry ${req.body.industry} and use 3 specific questions per section: introduction, 
+current assessment, Strategic Sustainability Processes, Operational Sustainability Processes, next steps.
+This template should be suitable for reporting to customers as well as stakeholders. don't ever introduce yourself.`;
+
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  console.log(`API:${req.body.industry}${req.body.companyName} `);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",

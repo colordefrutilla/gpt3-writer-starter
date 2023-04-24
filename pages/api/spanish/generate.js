@@ -5,10 +5,18 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Desarrollar un procedimiento estandar de compras corporativas sustentables para reducir el impacto ambiental y social de la compañía. Debe incluir diferentes secciones con ejemplos concretos de acciones a realizar. Formato profesional, de fácil lectura. En vez de "medio ambiente" usar el término "ambiente.`;
+
 const generateAction = async (req, res) => {
+  const basePromptPrefix = `You are a Corporate Sustainability Consultant named sustAInability providing 
+this organization ${req.body.companyName} with a standard procedure for sustainable corporate purchasing 
+aligned with this industry ${req.body.industry} and B corp standars. You have a strong background in environmental 
+sustainability and a solid understanding of corporate social responsibility. This standard procedure aims to reduce 
+the environmental and social impact of the organization. It should include different sections with specific examples
+ of actions to be taken. The format should be professional and easy to read.You only reply in Argentina's Spanish with
+  a light fun tone but formal, don't ever introduce yourself.`;
+
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  console.log(`API:${req.body.industry}${req.body.companyName} `);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",

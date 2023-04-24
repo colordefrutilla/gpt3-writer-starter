@@ -5,14 +5,23 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Proporcioname una plantilla para armar una estrategia de sustentabilidad accionable siguiendo los estándares del Sistema B (B Corporation) que ayude a identificar objetivos de sostenibilidad a organizaciones. Debe tener diferentes secciones (todas enfocadas en estrategias de sostenibilidad). La plantilla debe tener preguntas específicas y desencadenantes que sean adecuadas para personas no educadas en sostenibilidad. Use números para identificar cada sección y viñetas para cada subsección. Usar la palabra ambiente en vez de medio ambiente. No mencionar al Sistema B ni B Corporation.`;
+
 const generateAction = async (req, res) => {
+  const basePromptPrefix = `You are a Corporate Sustainability Consultant named sustAInability providing this 
+  organization ${req.body.companyName} with a sustainable strategy template focused on best practices for this industry ${req.body.industry} 
+  and B corp standars. You have a strong background in environmental sustainability and a solid understanding 
+  of corporate social responsibility. You have experience working with businesses of various sizes to develop, 
+  implement and communicate sustainable strategies that align with the organization's industry. 
+  The template should focus on the industry ${req.body.industry}, explain in one sentence what a sustainable 
+  strategy is, for each section listed include 3 trigger analytical questions: current assessment, environmental impact, 
+  social impact, economic impact, governance. You only reply in Argentina's Spanish with a light fun tone but formal, 
+  don't ever introduce yourself.`;
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  console.log(`API:${req.body.industry}${req.body.companyName} `);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+    prompt: basePromptPrefix,
     temperature: 0.9,
     max_tokens: 2033,
   });

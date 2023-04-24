@@ -17,7 +17,8 @@ const phrases = [
 ];
 
 const Home = () => {
-  const [userInput, setUserInput] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [industry, setIndustry] = useState("");
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -33,7 +34,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -63,7 +64,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -92,7 +93,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -122,7 +123,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -151,7 +152,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ companyName, industry }),
     });
 
     const data = await response.json();
@@ -183,7 +184,12 @@ const Home = () => {
 
   function onUserChangedText(event) {
     console.log(event.target.value);
-    setUserInput(event.target.value);
+    setCompanyName(event.target.value);
+  }
+
+  function onNewUserChangedText(event) {
+    console.log(event.target.value);
+    setIndustry(event.target.value);
   }
 
   return (
@@ -235,48 +241,61 @@ const Home = () => {
             <input
               type="text"
               placeholder="Ingresá el nombre de tu organización"
-              value={userInput}
+              value={companyName}
               onChange={onUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
             />
             <br />
+            <br />
+            <input
+              type="text"
+              placeholder="Ingresá tu industria"
+              value={industry}
+              onChange={onNewUserChangedText}
+              className="input input-bordered input-lg w-full center whitespace-normal"
+            />
+            <br />
+            <br />
+            <br />
+            <div className="mb-8 text-center">
+              Elegí en qué podemos ayudarte hoy 👇
+            </div>
             <div className="flex flex-col mt-12">
               <button
-                className="btn btn-outline mt-8 border-lime-400 hover:bg-lime-400"
+                className="btn btn-outline border-lime-400 hover:bg-lime-400"
                 onClick={callGenerate4Endpoint}
               >
-                📈Empezá a construir tu Estrategia Sustentable respondiendo
-                estas preguntas📈
+                Empezar a construir una estrategia sustentable 📈
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
                 onClick={callGenerate5Endpoint}
               >
-                📣Plasmá tu estrategia usando este template de reportes📣
+                Reportar tu progreso usando este template de reportes 📣
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
                 onClick={callGenerateEndpoint}
               >
-                🛒Desarrollá un procedimiento estándar para compras
-                sustentables🛒
+                Desarrollar un procedimiento estándar para compras sustentables
+                🛒
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
                 onClick={callGenerate2Endpoint}
               >
-                ♻️Usá este borrador para comunicar de manera concreta tus
-                acciones sustentables♻️
+                Comunicar acciones sustentables con esta plantilla de comunicado
+                de prensa ♻️
               </button>
 
               <button
                 className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
                 onClick={callGenerate3Endpoint}
               >
-                ✨Templates para posteos en redes sociales✨
+                Templates para posteos en redes sociales✨
               </button>
             </div>
             {/* New code I added here */}
@@ -290,11 +309,11 @@ const Home = () => {
                   <div className="mb-8">
                     La generación de respuestas tarda entre 20 a 30 segundos.
                     <br />
-                    Si la respuesta no te convenció, volvé a apretar el botón
-                    que apretaste para obtener otra.
+                    Si no te convence, volvé a generar la respuesta apretando el
+                    mismo botón que antes.
                     <br />
-                    TIP: Copiá y pegá las respuestas. Una vez que cierres la
-                    página o aprietes otros botones, se borran
+                    ⚠️Si cerrás la página o apretás otros botones, las
+                    respuestas se borran⚠️
                   </div>
                   <span className="loader h-12 w-12 "></span>
                 </div>

@@ -5,13 +5,21 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Create a set of sustainable communication templates for this company that adopt a style similar to Greta Thunberg's. The emphasis of these templates should be on the urgency and importance of taking action on climate change, while also showcasing the company's commitment to sustainability and carbon neutral goals (don't mention years). Optimize the message for Instagram, LinkedIn, and Twitter threads, using a maximum of three tweets to effectively communicate the message. The Instagram template should be shorter than the LinkedIn template, and all templates should incorporate relevant hashtags and engaging emojis (use different emojis) to encourage sharing.
+
+const generateAction = async (req, res) => {
+  const basePromptPrefix = `You are a Corporate Sustainability Consultant providing 
+this organization ${req.body.companyName} with a set of sustainable communication templates for this 
+organization ${req.body.companyName} in the style of Greta Thunberg. Emphasis on the urgency and importance 
+of taking action on climate change. Optimize the message for the industry ${req.body.industry}, 
+Instagram posts, LinkedIn posts, and Twitter threads, using a maximum of three tweets. The Instagram template 
+should be shorter than the LinkedIn template. Instagram and Linkedin templates should include relevant hashtags 
+and attractive emojis (use different emojis) to encourage engagement. don't ever introduce yourself.
 Instagram:
 LinkedIn:
 Twitter:`;
-const generateAction = async (req, res) => {
+
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  console.log(`API:${req.body.industry}${req.body.companyName} `);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",

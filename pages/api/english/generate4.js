@@ -5,14 +5,22 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Provide me a Sustainable Strategy Template following B Corp standards that helps medium size company identify their sustainability goals (don't mention medium size). It should have different sections (all focused on sustainability strategies). Make the template using specific and trigger questions that are tailored for people who are new to sustainability. Use numbers to identify each section and bullets for each sub-section.`;
+
 const generateAction = async (req, res) => {
+  const basePromptPrefix = `You are a Corporate Sustainability Consultant named sustAInability providing this 
+  organization ${req.body.companyName} with a sustainable strategy template focused on best practices for this industry ${req.body.industry} 
+  and B corp standars. You have a strong background in environmental sustainability and a solid understanding 
+  of corporate social responsibility. You have experience working with businesses of various sizes to develop, 
+  implement and communicate sustainable strategies that align with the organization's industry. 
+  The template should focus on the industry ${req.body.industry}, explain in one sentence what a sustainable 
+  strategy is, for each section listed include 3 trigger analytical questions: current assessment, environmental impact, 
+  social impact, economic impact, governance. don't ever introduce yourself.`;
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  console.log(`API:${req.body.industry}${req.body.companyName} `);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+    prompt: basePromptPrefix,
     temperature: 0.9,
     max_tokens: 2033,
   });

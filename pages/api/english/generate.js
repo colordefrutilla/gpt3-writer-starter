@@ -5,11 +5,17 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Generate a standard operating procedure for sustainable purchasing for this company. Include best practices an different sectios. Tailor it to the company's specific industry and needs, and should include actionable recommendations for achieving sustainable procurement practices. The guideline should be presented in a professional, easy-to-read format that can be shared with internal and external stakeholders. 
-`;
+
 const generateAction = async (req, res) => {
+  const basePromptPrefix = `You are a Corporate Sustainability Consultant named sustAInability providing 
+this organization ${req.body.companyName} with a standard procedure for sustainable corporate purchasing 
+aligned with this industry ${req.body.industry} and B corp standars. You have a strong background in environmental 
+sustainability and a solid understanding of corporate social responsibility. This standard procedure aims to reduce 
+the environmental and social impact of the organization. It should include different sections with specific examples
+ of actions to be taken. The format should be professional and easy to read. don't ever introduce yourself.`;
+
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
+  console.log(`API:${req.body.industry}${req.body.companyName} `);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
