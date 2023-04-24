@@ -240,7 +240,7 @@ const Home = () => {
           >
             <input
               type="text"
-              placeholder="ype: Company Name"
+              placeholder="Type: Company Name"
               value={companyName}
               onChange={onUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
