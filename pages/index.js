@@ -309,8 +309,8 @@ const Home = () => {
                   <div className="mb-8">
                     La generación de respuestas tarda entre 20 a 30 segundos.
                     <br />
-                    Si no te convence, volvé a generar la respuesta apretando el
-                    mismo botón que antes.
+                    ¿No te convenció el resultado? Volvé a generarlo apretando
+                    el mismo botón que antes.
                     <br />
                     ⚠️Si cerrás la página o apretás otros botones, las
                     respuestas se borran⚠️

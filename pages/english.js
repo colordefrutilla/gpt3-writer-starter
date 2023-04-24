@@ -307,8 +307,8 @@ const Home = () => {
                   <div className="mb-8">
                     Generation takes about 20 seconds.
                     <br />
-                    If you don't like the output, just hit the same button again
-                    to re-generate it.
+                    Didn't like the outpu? just hit the same button again to
+                    re-generate it.
                     <br />
                     ⚠️If you close the site or press other buttons, previous
                     outputs will disappear.⚠️
