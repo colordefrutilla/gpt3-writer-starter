@@ -265,37 +265,36 @@ const Home = () => {
                 className="btn btn -outline border-lime-400 hover:bg-black text-white"
                 onClick={callGenerate4Endpoint}
               >
-                Empezar a construir una estrategia sustentable 📈
+                empezar una estrategia sustentable 📈
               </button>
 
               <button
                 className="btn btn -outline mt-8 border-lime-300 hover:bg-black text-white"
                 onClick={callGenerate5Endpoint}
               >
-                Reportar tu progreso usando este template de reportes 📣
+                reportar tu progreso con el template de reportes 📣
               </button>
 
               <button
                 className="btn btn -outline mt-8 border-lime-200 hover:bg-black text-white"
                 onClick={callGenerateEndpoint}
               >
-                Desarrollar un procedimiento estándar para compras sustentables
-                🛒
+                desarrollar un procedimiento para compras sustentables 🛒
               </button>
 
               <button
                 className="btn btn -outline mt-8 border-lime-100 hover:bg-black text-white"
                 onClick={callGenerate2Endpoint}
               >
-                Comunicar acciones sustentables con esta plantilla de comunicado
-                de prensa ♻️
+                bosquejar un comunicado de prensa sobre tus acciones
+                sustentables ♻️
               </button>
 
               <button
                 className="btn btn -outline mt-8 border-lime-50 hover:bg-black text-white"
                 onClick={callGenerate3Endpoint}
               >
-                Templates para posteos en redes sociales✨
+                difundir lo que estás haciendo en redes sociales✨
               </button>
             </div>
             {/* New code I added here */}

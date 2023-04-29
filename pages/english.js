@@ -265,28 +265,28 @@ const Home = () => {
                 className="btn btn -outline border-lime-400 hover:bg-black text-white"
                 onClick={callGenerate4Endpoint}
               >
-                Build your Sustainable Strategy answering these questions 📈
+                Start a sustainable strategy 📈
               </button>
 
               <button
                 className="btn btn -outline mt-8 border-lime-300 hover:bg-black text-white"
                 onClick={callGenerate5Endpoint}
               >
-                Communicate your progress with this Report Template 📣
+                Build a progress report 📣
               </button>
 
               <button
                 className="btn btn -outline mt-8 border-lime-200 hover:bg-black text-white"
                 onClick={callGenerateEndpoint}
               >
-                Generate a Sustainable Purchasing Guideline 🛒
+                Generate a sustainable purchasing guideline 🛒
               </button>
 
               <button
                 className="btn btn -outline mt-8 border-lime-100 hover:bg-black text-white"
                 onClick={callGenerate2Endpoint}
               >
-                Craft a press release on corporate Sustainability efforts ♻️
+                Craft a press release on Sustainability efforts ♻️
               </button>
 
               <button
