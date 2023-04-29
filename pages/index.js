@@ -220,7 +220,7 @@ const Home = () => {
           <div className="header">
             <div className="header-title">
               <h1>
-                Sust
+                sust
                 <span className="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-lime-400">
                   AI
                 </span>
@@ -240,7 +240,7 @@ const Home = () => {
           >
             <input
               type="text"
-              placeholder="Ingresá el nombre de tu organización"
+              placeholder="ingresá el nombre de tu organización"
               value={companyName}
               onChange={onUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
@@ -249,7 +249,7 @@ const Home = () => {
             <br />
             <input
               type="text"
-              placeholder="Ingresá tu industria"
+              placeholder="ingresá tu industria"
               value={industry}
               onChange={onNewUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
@@ -257,26 +257,26 @@ const Home = () => {
             <br />
             <br />
             <br />
-            <div className="mb-8 text-center">
-              Elegí en qué podemos ayudarte hoy 👇
+            <div className="mb-8 text-center text-white">
+              elegí en qué podemos ayudarte hoy 👇
             </div>
             <div className="flex flex-col mt-12">
               <button
-                className="btn btn-outline border-lime-400 hover:bg-lime-400"
+                className="btn btn -outline border-lime-400 hover:bg-black text-white"
                 onClick={callGenerate4Endpoint}
               >
                 Empezar a construir una estrategia sustentable 📈
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
+                className="btn btn -outline mt-8 border-lime-300 hover:bg-black text-white"
                 onClick={callGenerate5Endpoint}
               >
                 Reportar tu progreso usando este template de reportes 📣
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
+                className="btn btn -outline mt-8 border-lime-200 hover:bg-black text-white"
                 onClick={callGenerateEndpoint}
               >
                 Desarrollar un procedimiento estándar para compras sustentables
@@ -284,7 +284,7 @@ const Home = () => {
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
+                className="btn btn -outline mt-8 border-lime-100 hover:bg-black text-white"
                 onClick={callGenerate2Endpoint}
               >
                 Comunicar acciones sustentables con esta plantilla de comunicado
@@ -292,7 +292,7 @@ const Home = () => {
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
+                className="btn btn -outline mt-8 border-lime-50 hover:bg-black text-white"
                 onClick={callGenerate3Endpoint}
               >
                 Templates para posteos en redes sociales✨
@@ -303,16 +303,16 @@ const Home = () => {
             <br />
             <br />
             <br />
-            <div className=" text-center">
+            <div className=" text-center text-white">
               {isGenerating ? (
                 <div>
                   <div className="mb-8">
-                    La generación de respuestas tarda entre 20 a 30 segundos.
+                    la generación de respuestas tarda entre 20 a 30 segundos.
                     <br />
-                    ¿No te convenció el resultado? Volvé a generarlo apretando
+                    ¿no te convenció el resultado? Volvé a generarlo apretando
                     el mismo botón que antes.
                     <br />
-                    ⚠️Si cerrás la página o apretás otros botones, las
+                    ⚠️si cerrás la página o apretás otros botones, las
                     respuestas se borran⚠️
                   </div>
                   <span className="loader h-12 w-12 "></span>

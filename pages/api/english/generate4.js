@@ -7,14 +7,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateAction = async (req, res) => {
-  const basePromptPrefix = `You are a Corporate Sustainability Consultant named sustAInability providing this 
-  organization ${req.body.companyName} with a sustainable strategy template focused on best practices for this industry ${req.body.industry} 
+  const basePromptPrefix = `You are a Corporate Sustainability Consultant providing this organization ${req.body.companyName} with a sustainable strategy template focused on best practices for this industry ${req.body.industry} 
   and B corp standars. You have a strong background in environmental sustainability and a solid understanding 
   of corporate social responsibility. You have experience working with businesses of various sizes to develop, 
   implement and communicate sustainable strategies that align with the organization's industry. 
   The template should focus on the industry ${req.body.industry}, explain in one sentence what a sustainable 
   strategy is, for each section listed include 3 trigger analytical questions: current assessment, environmental impact, 
   social impact, economic impact, governance. don't ever introduce yourself.`;
+
   // Run first prompt
   console.log(`API:${req.body.industry}${req.body.companyName} `);
 

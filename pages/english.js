@@ -220,7 +220,7 @@ const Home = () => {
           <div className="header">
             <div className="header-title">
               <h1>
-                Sust
+                sust
                 <span className="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-lime-400">
                   AI
                 </span>
@@ -240,7 +240,7 @@ const Home = () => {
           >
             <input
               type="text"
-              placeholder="Type: Company Name"
+              placeholder="type: company Name"
               value={companyName}
               onChange={onUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
@@ -249,7 +249,7 @@ const Home = () => {
             <br />
             <input
               type="text"
-              placeholder="Type: Industry"
+              placeholder="type: industry"
               value={industry}
               onChange={onNewUserChangedText}
               className="input input-bordered input-lg w-full center whitespace-normal"
@@ -257,40 +257,40 @@ const Home = () => {
             <br />
             <br />
             <br />
-            <div className="mb-8 text-center">
-              How can we help you today? 👇
+            <div className="mb-8 text-center text-white">
+              how can we help you today? 👇
             </div>
             <div className="flex flex-col mt-12">
               <button
-                className="btn btn-outline border-lime-400 hover:bg-lime-400"
+                className="btn btn -outline border-lime-400 hover:bg-black text-white"
                 onClick={callGenerate4Endpoint}
               >
                 Build your Sustainable Strategy answering these questions 📈
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-300 hover:bg-lime-300"
+                className="btn btn -outline mt-8 border-lime-300 hover:bg-black text-white"
                 onClick={callGenerate5Endpoint}
               >
                 Communicate your progress with this Report Template 📣
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-200 hover:bg-lime-200"
+                className="btn btn -outline mt-8 border-lime-200 hover:bg-black text-white"
                 onClick={callGenerateEndpoint}
               >
                 Generate a Sustainable Purchasing Guideline 🛒
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-100 hover:bg-lime-100"
+                className="btn btn -outline mt-8 border-lime-100 hover:bg-black text-white"
                 onClick={callGenerate2Endpoint}
               >
                 Craft a press release on corporate Sustainability efforts ♻️
               </button>
 
               <button
-                className="btn btn-outline mt-8 border-lime-50 hover:bg-lime-50"
+                className="btn btn -outline mt-8 border-lime-50 hover:bg-black text-white"
                 onClick={callGenerate3Endpoint}
               >
                 Spread the Word on Social Media✨
@@ -301,16 +301,16 @@ const Home = () => {
             <br />
             <br />
             <br />
-            <div className=" text-center">
+            <div className=" text-center text-white">
               {isGenerating ? (
                 <div>
                   <div className="mb-8">
-                    Generation takes about 20 seconds.
+                    generation takes about 20 seconds.
                     <br />
-                    Didn't like the output? Just hit the same button again to
+                    didn't like the output? Just hit the same button again to
                     re-generate it.
                     <br />
-                    ⚠️If you close the site or press other buttons, previous
+                    ⚠️if you close the site or press other buttons, previous
                     outputs will disappear.⚠️
                   </div>
                   <span className="loader h-12 w-12 "></span>
