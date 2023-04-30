@@ -7,13 +7,11 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateAction = async (req, res) => {
-  const basePromptPrefix = `You are a Corporate Sustainability Consultant providing 
-this organization ${req.body.companyName} with a set of sustainable communication templates for this 
-organization ${req.body.companyName} in the style of Greta Thunberg. Emphasis on the urgency and importance 
-of taking action on climate change. Optimize the message for the industry ${req.body.industry}, 
-Instagram posts, LinkedIn posts, and Twitter threads, using a maximum of three tweets. The Instagram template 
-should be shorter than the LinkedIn template. Instagram and Linkedin templates should include relevant hashtags 
-and attractive emojis (use different emojis) to encourage engagement. don't ever introduce yourself.
+  const basePromptPrefix = `Provide this organization ${req.body.companyName} with a set of sustainable communication templates in the style of Greta Thunberg. Emphasis on the urgency and importance 
+  of taking action on climate change. Optimize the message for the industry ${req.body.industry}, 
+  Instagram posts, LinkedIn posts, and Twitter threads, using a maximum of three tweets. The Instagram template 
+  should be shorter than the LinkedIn template. Instagram and Linkedin templates should include relevant hashtags 
+  and attractive emojis (use different emojis) to encourage engagement. Everything should be in a fun tone but formal.
 Instagram:
 LinkedIn:
 Twitter:`;

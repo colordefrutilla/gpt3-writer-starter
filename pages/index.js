@@ -22,6 +22,7 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
+  const [copyButtonLabel, setCopyButtonLabel] = useState("copiá el resultado");
 
   const callGenerateEndpoint = async () => {
     setApiOutput("");
@@ -196,6 +197,7 @@ const Home = () => {
     // put code to copy text here
     let textToCopy = apiOutput;
     navigator.clipboard.writeText(textToCopy);
+    setCopyButtonLabel("copiado!");
   }
 
   return (
@@ -268,10 +270,10 @@ const Home = () => {
             </div>
             <div className="flex flex-col mt-12">
               <button
-                className="btn btn -outline border-lime-400 hover:bg-black text-white"
-                onClick={callGenerate4Endpoint}
+                className="btn btn -outline  border-lime-200 hover:bg-black text-white"
+                onClick={callGenerateEndpoint}
               >
-                empezar una estrategia sustentable 📈
+                cómo iniciar un plan sostenible 🧩
               </button>
 
               <button
@@ -279,13 +281,6 @@ const Home = () => {
                 onClick={callGenerate5Endpoint}
               >
                 reportar tu progreso con el template de reportes 📣
-              </button>
-
-              <button
-                className="btn btn -outline mt-8 border-lime-200 hover:bg-black text-white"
-                onClick={callGenerateEndpoint}
-              >
-                desarrollar un procedimiento para compras sustentables 🛒
               </button>
 
               <button
@@ -337,7 +332,7 @@ const Home = () => {
                 </div>
                 <br />
                 <button className="btn text-white" onClick={copy}>
-                  copiá el resultado
+                  {copyButtonLabel}
                 </button>
                 <div className="output-content">
                   <p>{apiOutput}</p>
@@ -353,7 +348,7 @@ const Home = () => {
               rel="noreferrer"
             >
               <div className="badge">
-                <p>Conectate conmigo</p>
+                <p>conectate conmigo</p>
               </div>
             </a>
           </div>

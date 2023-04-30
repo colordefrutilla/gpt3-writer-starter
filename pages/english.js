@@ -22,6 +22,7 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
+  const [copyButtonLabel, setCopyButtonLabel] = useState("copy output");
 
   const callGenerateEndpoint = async () => {
     setApiOutput("");
@@ -197,6 +198,7 @@ const Home = () => {
     // put code to copy text here
     let textToCopy = apiOutput;
     navigator.clipboard.writeText(textToCopy);
+    setCopyButtonLabel("copied!");
   }
 
   return (
@@ -269,10 +271,10 @@ const Home = () => {
             </div>
             <div className="flex flex-col mt-12">
               <button
-                className="btn btn -outline border-lime-400 hover:bg-black text-white"
-                onClick={callGenerate4Endpoint}
+                className="btn btn -outline border-lime-200 hover:bg-black text-white"
+                onClick={callGenerateEndpoint}
               >
-                Start a sustainable strategy 📈
+                start a sustainable plan 🧩
               </button>
 
               <button
@@ -280,13 +282,6 @@ const Home = () => {
                 onClick={callGenerate5Endpoint}
               >
                 Build a progress report 📣
-              </button>
-
-              <button
-                className="btn btn -outline mt-8 border-lime-200 hover:bg-black text-white"
-                onClick={callGenerateEndpoint}
-              >
-                Generate a sustainable purchasing guideline 🛒
               </button>
 
               <button
@@ -314,8 +309,8 @@ const Home = () => {
                   <div className="mb-8">
                     generation takes about 20 seconds.
                     <br />
-                    didn't like the output? Just hit the same button again to
-                    re-generate it.
+                    didn't like the output? just hit the same button again to
+                    re-generate the answer.
                     <br />
                     ⚠️if you close the site or press other buttons, previous
                     outputs will disappear.⚠️
@@ -337,7 +332,7 @@ const Home = () => {
                 </div>
                 <br />
                 <button className="btn text-white" onClick={copy}>
-                  copy the output
+                  {copyButtonLabel}
                 </button>
                 <div className="output-content">
                   <p>{apiOutput}</p>
@@ -354,7 +349,7 @@ const Home = () => {
               rel="noreferrer"
             >
               <div className="badge">
-                <p>Connect with me</p>
+                <p>connect with me</p>
               </div>
             </a>
           </div>

@@ -7,12 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateAction = async (req, res) => {
-  const basePromptPrefix = `You are a Corporate Sustainability Consultant named sustAInability providing 
-this organization ${req.body.companyName} with a standard procedure for sustainable corporate purchasing 
-aligned with this industry ${req.body.industry} and B corp standars. You have a strong background in environmental 
-sustainability and a solid understanding of corporate social responsibility. This standard procedure aims to reduce 
-the environmental and social impact of the organization. It should include different sections with specific examples
- of actions to be taken. The format should be professional and easy to read. don't ever introduce yourself.`;
+  const basePromptPrefix = `provide a template for starting a sustainable strategy inside this organization ${req.body.companyName} considering i have no idea what sustainable practices are. the template should be specific and simple following this format: for each of the sections below you'll include 3 trigger questions and its example answers. the template must be based on the sustainable development goals from UN. the template should have different sections as it follows: CONTEXT ANALYSIS focused on sustainable and social impact; OBJECTIVES AND BUDGET; OPPORTUNITY EXPLORATION; EXECUTION TEAM; MONITORING; CONCLUSION; RESOURCES: provide the url of the SDG website and a link to an example of industry ${req.body.industry} best practices. for each of the sections below you'll include 3 trigger questions and its example answers. tailor the template for the industry ${req.body.industry} best practices.`;
 
   // Run first prompt
   console.log(`API:${req.body.industry}${req.body.companyName} `);
@@ -20,7 +15,7 @@ the environmental and social impact of the organization. It should include diffe
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `${basePromptPrefix}${req.body.userInput}\n`,
-    temperature: 0.9,
+    temperature: 0.75,
     max_tokens: 2033,
   });
 
