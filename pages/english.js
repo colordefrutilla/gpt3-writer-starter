@@ -128,7 +128,8 @@ const Home = () => {
 
     const data = await response.json();
     const { output } = data;
-    console.log("OpenAI replied...", output.text);
+
+    console.log("OpenAI replied...", data.output.text);
 
     if (phraseIndex === phrases.length - 1) {
       setPhraseIndex(0);
@@ -190,6 +191,12 @@ const Home = () => {
   function onNewUserChangedText(event) {
     console.log(event.target.value);
     setIndustry(event.target.value);
+  }
+
+  function copy() {
+    // put code to copy text here
+    let textToCopy = apiOutput;
+    navigator.clipboard.writeText(textToCopy);
   }
 
   return (
@@ -328,10 +335,14 @@ const Home = () => {
                     <h3>{phrases[phraseIndex]}</h3>
                   </div>
                 </div>
-
+                <br />
+                <button className="btn" onClick={copy}>
+                  copy the output
+                </button>
                 <div className="output-content">
                   <p>{apiOutput}</p>
                 </div>
+                <br />
               </div>
             )}
           </div>

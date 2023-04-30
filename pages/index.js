@@ -192,6 +192,12 @@ const Home = () => {
     setIndustry(event.target.value);
   }
 
+  function copy() {
+    // put code to copy text here
+    let textToCopy = apiOutput;
+    navigator.clipboard.writeText(textToCopy);
+  }
+
   return (
     <>
       <Head>
@@ -308,7 +314,7 @@ const Home = () => {
                   <div className="mb-8">
                     la generación de respuestas tarda entre 20 a 30 segundos.
                     <br />
-                    ¿no te convenció el resultado? Volvé a generarlo apretando
+                    ¿no te convenció el resultado? volvé a generarlo apretando
                     el mismo botón que antes.
                     <br />
                     ⚠️si cerrás la página o apretás otros botones, las
@@ -329,7 +335,10 @@ const Home = () => {
                     <h3>{phrases[phraseIndex]}</h3>
                   </div>
                 </div>
-
+                <br />
+                <button className="btn" onClick={copy}>
+                  copia el resultado
+                </button>
                 <div className="output-content">
                   <p>{apiOutput}</p>
                 </div>
