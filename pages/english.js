@@ -336,7 +336,7 @@ const Home = () => {
                   </div>
                 </div>
                 <br />
-                <button className="btn" onClick={copy}>
+                <button className="btn text-white" onClick={copy}>
                   copy the output
                 </button>
                 <div className="output-content">

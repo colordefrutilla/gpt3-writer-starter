@@ -336,8 +336,8 @@ const Home = () => {
                   </div>
                 </div>
                 <br />
-                <button className="btn" onClick={copy}>
-                  copia el resultado
+                <button className="btn text-white" onClick={copy}>
+                  copiá el resultado
                 </button>
                 <div className="output-content">
                   <p>{apiOutput}</p>
