@@ -5,6 +5,7 @@ import buildspaceLogo from "../assets/buildspace-logo.png";
 import { Link } from "next/link";
 import { initGA, logPageView } from "../utils/gtag";
 import { useEffect } from "react";
+import { Bubble } from "@typebot.io/react";
 
 const phrases = [
   "Choose Green or Miss Out",
@@ -224,6 +225,15 @@ const Home = () => {
         />
         <link rel="manifest" href="/plant/site.webmanifest" />
       </Head>
+
+      <Bubble
+        typebot="basic-chat-gpt-copy-27lw6wa"
+        theme={{
+          button: { backgroundColor: "#0042DA", iconColor: "#FFFFFF" },
+          previewMessage: { backgroundColor: "#ffff", textColor: "black" },
+        }}
+      />
+
       <div className="bg-gradient-to-b from-black to-black min-h-screen pb-20">
         <div className="max-w-3xl m-auto pt-20 px-2">
           <div className="header">
