@@ -7,7 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateAction = async (req, res) => {
-  const basePromptPrefix = `provide a template for starting a sustainable strategy inside this organization ${req.body.companyName} the template should be specific and simple following this format: for each of the sections below you'll include 2 trigger questions and its example answers explaining why it is important. the template must be based on the sustainable development goals from UN and have different sections in spanish as it follows: CONTEXT ANALYSIS focused on sustainable and social impact; OBJECTIVES AND BUDGET; OPPORTUNITY EXPLORATION; EXECUTION TEAM; MONITORING; CONCLUSION; RESOURCES: provide the url of the SDG website and a link to an example of industry ${req.body.industry} best sustainable practices. tailor the template for the industry ${req.body.industry} best practices. before answering translate your answer to spanish from argentina.`;
+  const basePromptPrefix = `Crea una plantilla simple y específica para comenzar una estrategia sostenible en la organización ${req.body.companyName}. La plantilla debe estar basada en los Objetivos de Desarrollo Sostenible de las Naciones Unidas y abordar los aspectos clave en cada sección: Análisis de contexto, Objetivos y Presupuesto, Exploración de oportunidades, Monitoreo y KPIs, Conclusión. Incluye 1 pregunta clave y una respuesta muy breve a modo de ejemplo, además de una pregunta clave extra sin respuesta en cada sección, y adapta la plantilla a la industria ${req.body.industry}. Proporciona 2 ejemplos de las mejores prácticas sostenibles en la industria ${req.body.industry}.`;
 
   // Run first prompt
   console.log(`API:${req.body.industry}${req.body.companyName} `);
@@ -16,7 +16,7 @@ const generateAction = async (req, res) => {
     model: "text-davinci-003",
     prompt: `${basePromptPrefix}${req.body.userInput}\n`,
     temperature: 0.75,
-    max_tokens: 2033,
+    max_tokens: 1700,
   });
 
   const basePromptOutput = baseCompletion.data.choices.pop();

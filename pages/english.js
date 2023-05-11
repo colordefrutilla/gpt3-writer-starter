@@ -317,7 +317,7 @@ const Home = () => {
               {isGenerating ? (
                 <div>
                   <div className="mb-8">
-                    generation takes about 20 seconds.
+                    generation takes about 40 seconds.
                     <br />
                     didn't like the output? just hit the same button again to
                     re-generate the answer.

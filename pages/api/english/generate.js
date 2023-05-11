@@ -7,7 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateAction = async (req, res) => {
-  const basePromptPrefix = `provide a template for starting a sustainable strategy inside this organization ${req.body.companyName} the template should be specific and simple following this format: for each of the sections below you'll include 2 trigger questions and its example answers explaining why it is important. the template must be based on the sustainable development goals from UN and have different sections as it follows: CONTEXT ANALYSIS focused on sustainable and social impact; OBJECTIVES AND BUDGET; OPPORTUNITY EXPLORATION; EXECUTION TEAM; MONITORING; CONCLUSION; RESOURCES: provide the url of the SDG website and a link to an example of industry ${req.body.industry} best sustainable practices. tailor the template for the industry ${req.body.industry} best practices.`;
+  const basePromptPrefix = `Create a simple and specific template to start a sustainable strategy in the organization ${req.body.companyName}. The template should be based on the United Nations Sustainable Development Goals and address key aspects in each section: Context Analysis, Goals and Budget, Opportunity Exploration, Monitoring and KPIs, Conclusion. Include 1 key question and a very brief answer as an example, as well as one additional key question without an answer in each section, and tailor the template to the industry ${req.body.industry}. Provide 2 examples of best sustainable practices in the industry ${req.body.industry}.  `;
 
   // Run first prompt
   console.log(`API:${req.body.industry}${req.body.companyName} `);

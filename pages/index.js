@@ -316,7 +316,7 @@ const Home = () => {
               {isGenerating ? (
                 <div>
                   <div className="mb-8">
-                    la generación de respuestas tarda entre 20 a 30 segundos.
+                    la generación de respuestas tarda aprox 60 segundos.
                     <br />
                     ¿no te convenció el resultado? volvé a generarlo apretando
                     el mismo botón que antes.
