@@ -321,8 +321,8 @@ const Home = () => {
                     ¿no te convenció el resultado? volvé a generarlo apretando
                     el mismo botón que antes.
                     <br />
-                    ⚠️si cerrás la página o apretás otros botones, las
-                    respuestas se borran⚠️
+                    ⚠️si cerrás la página o apretás otros botones,las respuestas
+                    se borran⚠️
                   </div>
                   <span className="loader h-12 w-12 "></span>
                 </div>
